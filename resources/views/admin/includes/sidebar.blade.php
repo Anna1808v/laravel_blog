@@ -8,8 +8,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              
+            <a href="{{ route('category.index') }}" class="nav-link">
               <i class="nav-icon fa-solid fa-ghost"></i>
               <p>
                 Категории
