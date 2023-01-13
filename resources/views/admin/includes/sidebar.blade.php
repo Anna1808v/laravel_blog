@@ -9,7 +9,7 @@
 
           <li class="nav-item">
             <a href="{{ route('admin.category.index') }}" class="nav-link">
-              <i class="nav-icon fa-solid fa-ghost"></i>
+              <i class="fa nav-icon fa-solid fa-ghost"></i>
               <p>
                 Категории
               </p>
