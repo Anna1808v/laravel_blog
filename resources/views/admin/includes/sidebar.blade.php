@@ -15,6 +15,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.tag.index') }}" class="nav-link">
+              <i class="fa nav-icon fa-solid fa-hippo"></i>
+              <p>
+                Тэги
+              </p>
+            </a>
+          </li>
           
         </ul>
     </div>
