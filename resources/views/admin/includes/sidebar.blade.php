@@ -8,6 +8,16 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
+            <a href="{{ route('admin.post.index') }}" class="nav-link">
+              <i class="fa nav-icon fa-solid fa-bug"></i>
+              <p>
+                Посты
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
             <a href="{{ route('admin.category.index') }}" class="nav-link">
               <i class="fa nav-icon fa-solid fa-ghost"></i>
               <p>
