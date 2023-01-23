@@ -32,12 +32,20 @@
               @method('PATCH')
               <div class="form-group">
                     <input type="text" class="form-control" name="title" placeholder="Название поста"
-                    value="{{ $post->title}}">
+                    value="{{ $post->title }}">
                     @error('title')
                       <div class="text-danger">Это поле необходимо для заполнения</div>
                     @enderror
               </div>
-              <input type="submit" class="btn btn-primary" value="Обновить">
+              <div class="form-group">
+                <textarea id="summernote" name="content">{{ $post->content }}</textarea>
+                @error('content')
+                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                @enderror
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Обновить">
+              </div>
             </form>
           </div>
         </div>
