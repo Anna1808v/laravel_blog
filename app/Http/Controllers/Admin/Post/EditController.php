@@ -7,7 +7,7 @@ use App\Post;
 use App\Category;
 use App\Http\Controllers\Controller;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
     public function __invoke(Post $post)
     {
