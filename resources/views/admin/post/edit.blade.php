@@ -30,21 +30,24 @@
             <form action="{{ route('admin.post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PATCH')
+
               <div class="form-group" class="w-25">
                     <input type="text" class="form-control" name="title" placeholder="Название поста"
                     value="{{ $post->title }}"
                     >
                     @error('title')
-                      <div class="text-danger">Это поле необходимо для заполнения</div>
+                      <div class="text-danger">{{ $message }}</div>
                     @enderror
               </div>
+
               <div class="form-group">
                 <textarea id="summernote" name="content">{{ $post->content }}</textarea>
-                
+
                 @error('content')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
+
               <div class="form-group w-50">
                 <label for="exampleInputFile">Добавить превью</label>
                 <div class="w-25 mb-3">
@@ -59,12 +62,15 @@
                     <span class="input-group-text">Загрузить</span>
                   </div>
                 </div>
+                @error('preview_image')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
+
               <div class="form-group w-50">
                 <label for="exampleInputFile">Добавить изображение</label>
                 <div class="w-50 mb-3">
                   <img src="{{ Storage::url($post->main_image) }}" alt="main_image" class="w-50">
-                  
                 </div>
                 <div class="input-group">
                   <div class="custom-file">
@@ -75,7 +81,11 @@
                     <span class="input-group-text">Загрузить</span>
                   </div>
                 </div>
+                @error('main_image')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
+
               <div class="form-group w-50">
                 <label>Выберите категорию</label>
                 <select name="category_id" class="form-control">
@@ -85,7 +95,11 @@
                   >{{ $category->title }}</option>
                 @endforeach
                 </select>
+                @error('category_id')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
+
               <div class="form-group">
                 <label>Тэги</label>
                 <select class="select2 " name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
@@ -93,10 +107,15 @@
                   <option {{ is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? ' selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                 @endforeach
                 </select>
-              </div>        
+                @error('tag_ids')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>       
+
               <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Обновить">
               </div>
+              
             </form>
           </div>
         </div>
