@@ -35,6 +35,18 @@
                       <div class="text-danger">Это поле необходимо для заполнения</div>
                     @enderror
               </div>
+              <div class="form-group">
+                    <input type="text" class="form-control" name="email" placeholder="E-mail">
+                    @error('email')
+                      <div class="text-danger">Это поле необходимо для заполнения</div>
+                    @enderror
+              </div>
+              <div class="form-group">
+                    <input type="text" class="form-control" name="password" placeholder="Пароль">
+                    @error('password')
+                      <div class="text-danger">Это поле необходимо для заполнения</div>
+                    @enderror
+              </div>
               <input type="submit" class="btn btn-primary" value="Добавить">
             </form>
           </div>

@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\UpdateRequest;
+use App\Http\Requests\Admin\User\UpdateRequest;
 
 class DeleteController extends Controller
 {
     public function __invoke(User $user)
     {
-        $category->delete();
+        $user->delete();
         return redirect()->route('admin.user.index', compact('users'));
     }
 }

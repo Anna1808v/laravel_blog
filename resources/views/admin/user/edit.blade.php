@@ -30,15 +30,26 @@
             <form action="{{ route('admin.user.update', $user->id) }}" method="POST" class="col-4">
               @csrf
               @method('PATCH')
+
               <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Название категории"
-                    value="{{ $user->name}}">
-                    @error('name')
-                      <div class="text-danger">Это поле необходимо для заполнения</div>
-                    @enderror
+                <input type="text" class="form-control" name="name" placeholder="Имя пользователя"
+                value="{{ $user->name }}">
+                @error('name')
+                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                @enderror
               </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="email" placeholder="E-mail"
+                value="{{ $user->email }}">
+                @error('email')
+                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                @enderror
+              </div>
+              
               <input type="submit" class="btn btn-primary" value="Обновить">
             </form>
+
           </div>
         </div>
         <!-- /.row -->

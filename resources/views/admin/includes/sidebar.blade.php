@@ -9,7 +9,7 @@
 
           <li class="nav-item">
             <a href="{{ route('admin.user.index') }}" class="nav-link">
-              <i class="fa fa-duotone fa-users"></i>
+              <i class="fa nav-icon fa-duotone fa-users"></i>
               <p>
                 Пользователи
               </p>
