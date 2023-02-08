@@ -35,7 +35,7 @@
                 <input type="text" class="form-control" name="name" placeholder="Имя пользователя"
                 value="{{ $user->name }}">
                 @error('name')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
 
@@ -43,10 +43,28 @@
                 <input type="text" class="form-control" name="email" placeholder="E-mail"
                 value="{{ $user->email }}">
                 @error('email')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-              
+
+              <div class="form-group w-50">
+                <label>Выберите роль</label>
+                <select name="role_id" class="form-control">
+                @foreach($roles as $id => $role)
+                  <option value="{{ $id }}"
+                  {{ $id == $user->role ? ' selected' : ''}}
+                  >{{ $role }}</option>
+                @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+                    <input type="text" class="form-control" name="password" placeholder="Пароль">
+                    @error('role_id')
+                      <div class="text-danger">{{ $message }}</div>
+                    @enderror
+              </div>
+
               <input type="submit" class="btn btn-primary" value="Обновить">
             </form>
 
