@@ -49,7 +49,7 @@
 
               <div class="form-group w-50">
                 <label>Выберите роль</label>
-                <select name="role_id" class="form-control">
+                <select name="role" class="form-control">
                 @foreach($roles as $id => $role)
                   <option value="{{ $id }}"
                   {{ $id == $user->role ? ' selected' : ''}}
@@ -58,11 +58,8 @@
                 </select>
               </div>
 
-              <div class="form-group">
-                    <input type="text" class="form-control" name="password" placeholder="Пароль">
-                    @error('role_id')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
+              <div class="form-group w-50">
+                <input type="hidden" name="user_id" value="{{ $user->id }}">
               </div>
 
               <input type="submit" class="btn btn-primary" value="Обновить">

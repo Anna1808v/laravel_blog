@@ -17,8 +17,8 @@ class User extends Authenticatable
     public static function getRoles()
     {
         return [
-            self::ROLE_ADMIN => 'Админ',
-            self::ROLE_READER => 'Читатель',
+            0 => 'Админ',
+            1 => 'Читатель',
         ];
     }
 
@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
 
     /**
