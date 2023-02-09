@@ -53,9 +53,11 @@
                   >{{ $role }}</option>
                 @endforeach
                 </select>
+              </div>
 
+              <div class="form-group">
                 <input type="text" class="form-control" name="password" placeholder="Пароль">
-                @error('role')
+                @error('password')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
