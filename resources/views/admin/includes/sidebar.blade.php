@@ -8,6 +8,15 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
+            <a href="{{ route('admin.main.index') }}" class="nav-link">
+              <i class="fa nav-icon fa-duotone fa-house"></i>
+              <p>
+                Главная
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('admin.user.index') }}" class="nav-link">
               <i class="fa nav-icon fa-duotone fa-users"></i>
               <p>

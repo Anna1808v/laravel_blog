@@ -11,9 +11,9 @@
             <h1 class="m-0">Посты</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+          <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Главная</a></li>
+              <li class="breadcrumb-item active">Посты</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
