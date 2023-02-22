@@ -14,6 +14,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Главная</a></li>
               <li class="breadcrumb-item active">Пользователи</li>
+              <li class="breadcrumb-item active">Добавление пользователя</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
