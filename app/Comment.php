@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PostUserLike extends Model
+class Comment extends Model
 {
-    protected $table = 'post_user_likes';
+    protected $table = 'comments';
     protected $guarded = false;
 }

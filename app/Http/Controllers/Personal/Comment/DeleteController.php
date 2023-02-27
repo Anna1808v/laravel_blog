@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Personal\Comment;
 
+use App\Comment;
 use App\Http\Controllers\Controller;
 
-class IndexController extends Controller
+class DeleteController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Comment $comment)
     {
-        $comments = auth()->user()->comments;
+        $comment->delete();
         return view('personal.comment.index', compact('comments'));
     }
 }
