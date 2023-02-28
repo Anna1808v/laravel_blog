@@ -10,6 +10,6 @@ class DeleteController extends Controller
     public function __invoke(Comment $comment)
     {
         $comment->delete();
-        return view('personal.comment.index', compact('comments'));
+        return redirect()->route('personal.comment.index');
     }
 }

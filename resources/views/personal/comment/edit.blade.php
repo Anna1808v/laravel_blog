@@ -27,11 +27,11 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-12">         
-              <form action="{{ route('personal.comment.update', $comment->id) }}" method="POST" class="col-4">
+              <form action="{{ route('personal.comment.update', $comment->id) }}" method="POST" class="col-50">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                  <textarea name="message" cols="30" rows="10">{{ $comment->message}}</textarea>
+                  <textarea class="form-control" name="message" cols="30" rows="10">{{ $comment->message}}</textarea>
                     @error('message')
                       <div class="text-danger">Это поле необходимо для заполнения</div>
                     @enderror

@@ -43,10 +43,11 @@
                       <tr>
                         <td>{{ $comment->id }}</td>
                         <td>{{ $comment->message }}</td>
-                        <td class="text-center"><a href="" 
+                        <td class="text-center"><a href="{{ route('personal.comment.edit', $comment->id)}}" 
                           class="text-success"><i class="fa fa-solid fa-pen"></i></a></td>
+
                         <td class="text-center">
-                          <form action="" method="POST">
+                          <form action="{{ route('personal.comment.delete', $comment->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="border-0 bg-transparent">
@@ -54,6 +55,9 @@
                             </button>
                           </form>
                         </td>
+
+
+                        
                       </tr>
                     @endforeach  
                   </tbody>

@@ -45,8 +45,6 @@
                         <td>{{ $post->title }}</td>
                         
                         <td class="text-center">
-                          <td class="text-center"><a href="{{ route('admin.category.edit', $category->id) }}" 
-                            class="text-success"><i class="fa fa-solid fa-pen"></i></a></td>
                           <form action="{{ route('personal.liked.delete', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
