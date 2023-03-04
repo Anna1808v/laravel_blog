@@ -24,40 +24,27 @@
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Похожие посты</h2>
                         <div class="row">
-                            @foreach($relatedPosts as $post)
+                            @foreach($relatedPosts as $relatedPost)
                                 <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                    <img src="{{ asset('storage/' . $post->preview_image) }}" alt="related post" class="post-thumbnail">
-                                    <p class="post-category">{{ $post->category->title }}</p>
-                                    <a href="{{ route('post.show', $post->id) }}"><h5 class="post-title">{{ $post->title }}</h5></a> 
+                                    <img src="{{ asset('storage/' . $relatedPost->preview_image) }}" alt="related post" class="post-thumbnail">
+                                    <p class="post-category">{{ $relatedPost->category->title }}</p>
+                                    <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a> 
                                 </div>
                             @endforeach
                     </section>
                     <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
+                        <h2 class="section-title mb-5" data-aos="fade-up">Комментарии</h2>
                         <form action="/" method="post">
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
-                                <label for="comment" class="sr-only">Comment</label>
-                                <textarea name="comment" id="comment" class="form-control" placeholder="Comment" rows="10">Comment</textarea>
+                                    <label for="comment" class="sr-only">Оставить комментарий</label>
+                                    <textarea name="message" id="message" class="form-control" placeholder="Ваше сообщение" rows="10"></textarea>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-4" data-aos="fade-right">
-                                    <label for="name" class="sr-only">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name*">
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-up">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email*" required>
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-left">
-                                    <label for="website" class="sr-only">Website</label>
-                                    <input type="url" name="website" id="website" class="form-control" placeholder="Website*">
-                                </div>
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
                             </div>
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
+                                    <input type="submit" value="Оставить комментарий" class="btn btn-warning">
                                 </div>
                             </div>
                         </form>
