@@ -21,6 +21,45 @@
             </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                   
+                    <h2 class="section-title mb-5" data-aos="fade-up">Комментарии ({{ $post->comments->count() }})</h2>
+
+                    <section class="comment-list mb-5">
+                        @foreach($post->comments as $comment)
+                            <div class="comment-text mb-3">
+                                <div class="comment-text">
+                                    <span class="username">
+                                        <div>
+                                            {{ $comment->user->name }}
+                                        </div>
+                                    <span class="text-muted float-right">{{ $comment->dateAsCarbon->diffForHumans() }}</span>
+                                    </span>
+                                    {{ $comment->message }}
+                                </div>
+                            </div>
+                        @endforeach
+                    </section>
+
+                    @auth()
+                        <section class="comment-section">
+                            <form action="{{ route('post.comment.store', $post->id) }}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-12" data-aos="fade-up">
+                                        <label for="comment" class="sr-only">Оставить комментарий</label>
+                                        <textarea name="message" id="message" class="form-control" placeholder="Ваше сообщение" rows="10"></textarea>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-12" data-aos="fade-up">
+                                        <input type="submit" value="Оставить комментарий" class="btn btn-warning">
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    @endauth()
+
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Похожие посты</h2>
                         <div class="row">
@@ -31,23 +70,6 @@
                                     <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a> 
                                 </div>
                             @endforeach
-                    </section>
-                    <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Комментарии</h2>
-                        <form action="/" method="post">
-                            <div class="row">
-                                <div class="form-group col-12" data-aos="fade-up">
-                                    <label for="comment" class="sr-only">Оставить комментарий</label>
-                                    <textarea name="message" id="message" class="form-control" placeholder="Ваше сообщение" rows="10"></textarea>
-                                </div>
-                                <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            </div>
-                            <div class="row">
-                                <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Оставить комментарий" class="btn btn-warning">
-                                </div>
-                            </div>
-                        </form>
                     </section>
                 </div>
             </div>
