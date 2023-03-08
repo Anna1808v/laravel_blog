@@ -5,7 +5,8 @@
 <main class="blog">
     
         <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">Блог</h1>
+            <h1 class="edica-page-title" data-aos="fade-up">Блог123123</h1>
+            <h1>ТЕСТ ТЕСТ ТЕСТ</h1>
             <section class="featured-posts-section">
                 <div class="row">
                     @foreach($posts as $post)
@@ -13,7 +14,16 @@
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                             </div>
-                            <p class="blog-post-category">{{ $post->category->title }}</p>
+                            <div>
+                                <p class="blog-post-category">{{ $post->category->title }}</p>
+                                <p class="blog-post-category">{{ $post->category->title }}</p>
+                                <form action="#">
+                                    <button type="submit">
+                                        <i class="fa fa-regular fa-heart"></i>
+                                        <i class="fa fa-regular fa-thumbs-up"></i>
+                                    </button>
+                                </form>
+                            </div>
                             <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                                 <h6 class="blog-post-title">{{ $post->title }}</h6>
                             </a>

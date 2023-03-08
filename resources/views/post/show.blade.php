@@ -3,11 +3,13 @@
 @section('content')
 
 <main class="blog-post">
+    <h1>ТЕСТ ТЕСТ ТЕСТ</h1>
     <div class="container">
         <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
         <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">{{ $date->translatedFormat('d F Y') }} • {{ $date->format('H:i') }} • {{ $post->comments->count() }} комментариев </p>
         
         <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
+            <img src="{{ asset('storage/' . $post->main_image) }}" alt="blog post" class="w-100">
             <img src="{{ asset('storage/' . $post->main_image) }}" alt="blog post" class="w-100">
         </section>
         <section class="post-content">
