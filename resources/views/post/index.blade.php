@@ -15,8 +15,15 @@
                                     <p class="blog-post-category">{{ $post->category->title }}</p>
                                     <form action="{{ route('post.like.store', $post->id) }}" method="post">
                                         @csrf
-                                        <button type="submit">
-                                            <i class="fa fa-regular fa-heart"></i>
+                                        <span>{{ $post->liked_users_count }}</span>
+                                        <button type="submit" class="border-0 bg-transparent">
+                                            @auth()
+                                                @if(auth()->user()->likedPosts->contains($post->id))
+                                                    <i class="fas fa-heart"></i>
+                                                @else
+                                                    <i class="far fa-heart"></i>
+                                                @endif
+                                            @endauth()                                           
                                         </button>
                                     </form>
                                 </div>

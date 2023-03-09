@@ -10,9 +10,9 @@ class StoreController extends Controller
 {
     public function __invoke(Post $post)
     {
-
+        //toggle - если пост лайкнут, то снимает лайк, если нет - то ставит
         auth()->user()->likedPosts()->toggle($post->id);
 
-        return redirect()->route('post.index', $post->id);
+        return redirect()->back();
     }
 }
