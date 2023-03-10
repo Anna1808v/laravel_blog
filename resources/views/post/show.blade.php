@@ -22,11 +22,13 @@
                     @csrf
                     <span>{{ $post->liked_users_count }}</span>
                     <button type="submit" class="border-0 bg-transparent">
+
                         @if(auth()->user()->likedPosts->contains($post->id))
                             <i class="fas fa-heart"></i>
                         @else
                             <i class="far fa-heart"></i>
                         @endif
+
                     </button>
                 </form>
             @endauth()  
@@ -36,7 +38,7 @@
                     <span>{{ $post->liked_users_count }}</span>
                     <i class="fas fa-heart"></i>
                 </div>
-                @endguest
+            @endguest()
         </section>
 
         <div class="row">
